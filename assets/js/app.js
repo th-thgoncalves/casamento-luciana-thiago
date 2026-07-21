@@ -6,20 +6,47 @@ Versão 0.3.0
 */
 
 /* -----------------------------------------------------
-   1. BOTÃO "ABRIR CONVITE"
+   1. BOTÃO "ABRIR CONVITE" + MÚSICA DE FUNDO
 ----------------------------------------------------- */
 const openInvitation = document.getElementById("openInvitation");
+const bgMusic = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+function tocarMusica() {
+  if (!bgMusic) return;
+  bgMusic.play()
+    .then(() => {
+      musicToggle?.classList.add("is-playing");
+      if (musicToggle) musicToggle.textContent = "🔊";
+    })
+    .catch(() => {
+      // Se o navegador bloquear (ou o arquivo ainda não existir), fica silencioso sem quebrar o site.
+    });
+}
 
 if (openInvitation) {
   openInvitation.addEventListener("click", () => {
     openInvitation.innerHTML = "Preparando uma surpresa...";
     openInvitation.disabled = true;
+    tocarMusica();
 
     setTimeout(() => {
       document.getElementById("historia")?.scrollIntoView({ behavior: "smooth" });
       openInvitation.innerHTML = "Abrir Convite";
       openInvitation.disabled = false;
     }, 900);
+  });
+}
+
+if (musicToggle && bgMusic) {
+  musicToggle.addEventListener("click", () => {
+    if (bgMusic.paused) {
+      tocarMusica();
+    } else {
+      bgMusic.pause();
+      musicToggle.classList.remove("is-playing");
+      musicToggle.textContent = "🔇";
+    }
   });
 }
 
@@ -89,7 +116,7 @@ if ("IntersectionObserver" in window && revealEls.length) {
 // IMPORTANTE: troque pela URL gerada ao publicar o Google Apps Script como
 // "Aplicativo da Web" (Implantar > Nova implantação > Aplicativo da Web).
 // Ela termina em "/exec".
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz2NI7Isd95k2y5_-vxr67eRlAqr4WeG50n1EAFBU29iMyjgvbGBJ0MoxM1VNVABeaT/exec";
+const APPS_SCRIPT_URL = "COLE_AQUI_A_URL_DO_SEU_APPS_SCRIPT";
 
 const rsvpForm = document.getElementById("rsvpForm");
 const rsvpStatus = document.getElementById("rsvpStatus");
