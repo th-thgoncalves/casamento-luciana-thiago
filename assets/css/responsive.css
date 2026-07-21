@@ -11,9 +11,9 @@
   .form-row{flex-direction:column}
 }
 
-/* Tablets (≥600px) */
-@media(min-width:600px){
-  .galeria-grid{grid-template-columns:repeat(3,1fr)}
+/* Tablets/desktop (≥700px) */
+@media(min-width:700px){
+  .galeria-grid{grid-template-columns:repeat(4,1fr)}
   .countdown{gap:var(--sp-4)}
 }
 
@@ -28,6 +28,5 @@
 
 /* Telas grandes (≥1024px) */
 @media(min-width:1024px){
-  .galeria-grid{grid-template-columns:repeat(4,1fr)}
   .countdown-number{font-size:3.2rem}
 }
