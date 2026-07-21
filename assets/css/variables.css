@@ -1,0 +1,42 @@
+:root{
+  /* Cores */
+  --bg:#f8f6f2;
+  --bg-alt:#fffdf8;
+  --bg-deep:#f0e8d9;
+  --text:#474340;
+  --text-soft:#7b7268;
+  --text-faint:#998d82;
+  --gold:#c8a96a;
+  --gold-deep:#b9894e;
+  --line:#e4dccb;
+
+  /* Tipografia */
+  --title:"Bodoni Moda", serif;
+  --body:'Poppins', sans-serif;
+  --fs-eyebrow:.8rem;
+  --fs-body:1rem;
+  --fs-lead:1.1rem;
+  --fs-h2:clamp(2.2rem,5vw,3.2rem);
+  --fs-h1:clamp(4rem,10vw,6.8rem);
+
+  /* Espaçamento (escala 4px) */
+  --sp-1:.5rem;
+  --sp-2:1rem;
+  --sp-3:1.5rem;
+  --sp-4:2.5rem;
+  --sp-5:4rem;
+  --sp-6:6rem;
+
+  /* Layout */
+  --content-width:720px;
+  --radius:18px;
+  --radius-pill:999px;
+
+  /* Movimento */
+  --ease:cubic-bezier(.22,.68,0,1);
+  --dur:.6s;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+}
