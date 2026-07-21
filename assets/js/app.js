@@ -14,6 +14,10 @@ const musicToggle = document.getElementById("musicToggle");
 
 function tocarMusica() {
   if (!bgMusic) return;
+  if (!bgMusic.dataset.pulou) {
+    bgMusic.currentTime = 10; // pula o início silencioso da faixa
+    bgMusic.dataset.pulou = "1";
+  }
   bgMusic.play()
     .then(() => {
       musicToggle?.classList.add("is-playing");
