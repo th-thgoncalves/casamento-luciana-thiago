@@ -89,7 +89,7 @@ if ("IntersectionObserver" in window && revealEls.length) {
 // IMPORTANTE: troque pela URL gerada ao publicar o Google Apps Script como
 // "Aplicativo da Web" (Implantar > Nova implantação > Aplicativo da Web).
 // Ela termina em "/exec".
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzxSTMEGI_psUt4G_fQ5Pr5B4i3EtU_E94Smc6eAyraEcm2jBn1K8wAo0EnYk0b96Ui/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz2NI7Isd95k2y5_-vxr67eRlAqr4WeG50n1EAFBU29iMyjgvbGBJ0MoxM1VNVABeaT/exec";
 
 const rsvpForm = document.getElementById("rsvpForm");
 const rsvpStatus = document.getElementById("rsvpStatus");
@@ -99,7 +99,7 @@ if (rsvpForm) {
   rsvpForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    if (APPS_SCRIPT_URL.includes("https://script.google.com/macros/s/AKfycbzxSTMEGI_psUt4G_fQ5Pr5B4i3EtU_E94Smc6eAyraEcm2jBn1K8wAo0EnYk0b96Ui/exec")) {
+    if (APPS_SCRIPT_URL.includes("https://script.google.com/macros/s/AKfycbz2NI7Isd95k2y5_-vxr67eRlAqr4WeG50n1EAFBU29iMyjgvbGBJ0MoxM1VNVABeaT/exec")) {
       rsvpStatus.textContent = "Formulário ainda não conectado à planilha (configure o APPS_SCRIPT_URL em app.js).";
       rsvpStatus.dataset.state = "error";
       return;
