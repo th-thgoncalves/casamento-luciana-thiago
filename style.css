@@ -1,0 +1,277 @@
+/* =========================================================
+   RESET & BASE
+   ========================================================= */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit}
+
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:var(--sp-4);
+  overflow:hidden;
+  background:linear-gradient(#fffdf8,#f7efe5);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top, rgba(255,255,255,.8), transparent 60%);
+  pointer-events:none;
+}
+.hero-container{text-align:center;max-width:var(--content-width)}
+.hero-date{
+  font-size:var(--fs-eyebrow);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--text-faint);
+}
+.hero-title{
+  margin-top:25px;
+  font-family:var(--title);
+  font-size:var(--fs-h1);
+  font-weight:600;
+  line-height:1.18;
+  letter-spacing:.02em;
+  color:#423d39;
+}
+.heart{display:block;margin:24px 0;color:var(--gold);font-size:1.5rem}
+.hero-subtitle{margin-top:35px;font-size:var(--fs-lead);line-height:2;color:var(--text-soft)}
+.hero-divider{width:90px;height:2px;margin:45px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-location{line-height:2;color:#80766d}
+.hero-button{
+  margin-top:45px;min-width:230px;border:none;border-radius:var(--radius-pill);
+  padding:18px 0;cursor:pointer;
+  background:linear-gradient(135deg,#d0ab71,#b9894e);
+  color:#fff;font-weight:500;letter-spacing:1px;transition:.35s;
+}
+.hero-button:hover{transform:translateY(-5px)}
+.hero-button:disabled{opacity:.7;cursor:default;transform:none}
+.hero-scroll{margin-top:40px;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:#b29e82}
+
+/* =========================================================
+   SEÇÕES — estrutura genérica
+   ========================================================= */
+.section{
+  padding:var(--sp-6) var(--sp-3);
+  max-width:var(--content-width);
+  margin:0 auto;
+}
+.section--alt{
+  max-width:none;
+  background:var(--bg-alt);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.section--alt > .section-inner{max-width:var(--content-width);margin:0 auto;padding:var(--sp-6) var(--sp-3)}
+.section--dark{
+  max-width:none;
+  background:#2b2724;
+  color:#e9e2d6;
+}
+.section--dark .section-inner{max-width:var(--content-width);margin:0 auto;padding:var(--sp-6) var(--sp-3)}
+
+.eyebrow{
+  display:block;
+  font-size:var(--fs-eyebrow);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  margin-bottom:var(--sp-2);
+  text-align:center;
+}
+.section--dark .eyebrow{color:var(--gold)}
+.section-title{
+  font-family:var(--title);
+  font-size:var(--fs-h2);
+  text-align:center;
+  margin-bottom:var(--sp-3);
+  color:#423d39;
+}
+.section--dark .section-title{color:#f3ede1}
+.section-divider{
+  width:60px;height:2px;margin:var(--sp-3) auto var(--sp-4);
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.section-text{
+  text-align:center;
+  color:var(--text-soft);
+  max-width:56ch;
+  margin:0 auto;
+}
+
+/* =========================================================
+   NOSSA HISTÓRIA
+   ========================================================= */
+.historia-texto{margin-top:var(--sp-3)}
+.historia-texto p{margin-bottom:var(--sp-2);color:var(--text-soft);text-align:center}
+
+/* =========================================================
+   GALERIA
+   ========================================================= */
+.galeria-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:var(--sp-2);
+}
+.galeria-grid img,.galeria-grid .foto-placeholder{
+  aspect-ratio:1/1;
+  border-radius:12px;
+  object-fit:cover;
+  background:var(--bg-deep);
+}
+
+/* =========================================================
+   CONTAGEM REGRESSIVA
+   ========================================================= */
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:var(--sp-3);
+  flex-wrap:wrap;
+  margin-top:var(--sp-3);
+}
+.countdown-item{text-align:center;min-width:70px}
+.countdown-number{
+  display:block;
+  font-family:var(--title);
+  font-size:2.6rem;
+  font-weight:600;
+  color:var(--gold);
+}
+.countdown-label{
+  font-size:.7rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#c9bfae;
+}
+
+/* =========================================================
+   CERIMÔNIA / RECEPÇÃO — cards de local
+   ========================================================= */
+.local-card{
+  text-align:center;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:var(--sp-4) var(--sp-3);
+  background:var(--bg);
+}
+.section--alt .local-card{background:var(--bg-alt)}
+.local-card h3{font-family:var(--title);font-size:1.5rem;margin-bottom:var(--sp-1);color:#423d39}
+.local-card p{color:var(--text-soft);margin-bottom:var(--sp-1)}
+.local-card .btn-mapa{
+  display:inline-block;
+  margin-top:var(--sp-2);
+  padding:.7rem 1.6rem;
+  border:1px solid var(--gold-deep);
+  border-radius:var(--radius-pill);
+  color:var(--gold-deep);
+  text-decoration:none;
+  font-size:.85rem;
+  letter-spacing:1px;
+  transition:.3s;
+}
+.local-card .btn-mapa:hover{background:var(--gold-deep);color:#fff}
+
+/* =========================================================
+   RSVP — FORMULÁRIO
+   ========================================================= */
+.rsvp-form{
+  margin-top:var(--sp-4);
+  display:flex;
+  flex-direction:column;
+  gap:var(--sp-3);
+}
+.form-group{display:flex;flex-direction:column;gap:.4rem;text-align:left}
+.form-group label{font-size:.85rem;letter-spacing:.5px;color:var(--text-soft)}
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea{
+  padding:.9rem 1rem;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--bg-alt);
+  font-family:var(--body);
+  font-size:1rem;
+  color:var(--text);
+}
+.form-group textarea{resize:vertical;min-height:90px}
+.radio-group{display:flex;gap:var(--sp-3)}
+.radio-option{display:flex;align-items:center;gap:.5rem;font-size:.95rem}
+.form-row{display:flex;gap:var(--sp-2)}
+.form-row .form-group{flex:1}
+.form-submit{
+  margin-top:var(--sp-2);
+  align-self:center;
+  min-width:230px;
+  border:none;
+  border-radius:var(--radius-pill);
+  padding:16px 0;
+  cursor:pointer;
+  background:linear-gradient(135deg,#d0ab71,#b9894e);
+  color:#fff;
+  font-weight:500;
+  letter-spacing:1px;
+  transition:.35s;
+}
+.form-submit:hover{transform:translateY(-3px)}
+.form-submit:disabled{opacity:.6;cursor:default;transform:none}
+.form-status{text-align:center;font-size:.9rem;min-height:1.4em}
+.form-status[data-state="success"]{color:#4c7a4c}
+.form-status[data-state="error"]{color:#b5473f}
+
+/* =========================================================
+   LISTA DE PRESENTES
+   ========================================================= */
+.presentes-card{
+  text-align:center;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:var(--sp-4) var(--sp-3);
+}
+
+/* =========================================================
+   MENSAGENS
+   ========================================================= */
+.mensagens-lista{margin-top:var(--sp-3);display:flex;flex-direction:column;gap:var(--sp-2)}
+.mensagem-item{
+  border-left:2px solid var(--gold);
+  padding-left:var(--sp-2);
+  color:var(--text-soft);
+  font-style:italic;
+}
+
+/* =========================================================
+   RODAPÉ / CONTATO
+   ========================================================= */
+.footer{
+  text-align:center;
+  padding:var(--sp-5) var(--sp-3);
+  background:var(--bg-deep);
+}
+.footer .hero-title{font-size:clamp(2rem,6vw,3rem)}
+.footer-info{margin-top:var(--sp-2);color:var(--text-soft)}
+.footer-credit{margin-top:var(--sp-4);font-size:.75rem;color:var(--text-faint)}
+
+/* =========================================================
+   REVEAL (animação de entrada ao rolar)
+   ========================================================= */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
