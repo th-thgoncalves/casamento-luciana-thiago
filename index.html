@@ -24,6 +24,10 @@
 </head>
 <body>
 
+<!-- Música de fundo: troque o src pelo nome do seu arquivo em assets/musicas/ -->
+<audio id="bgMusic" src="assets/musicas/nossa-musica.mp3" loop preload="none"></audio>
+<button id="musicToggle" class="music-toggle" aria-label="Ativar ou desativar música" title="Música">🔇</button>
+
 <!-- ============================= HERO ============================= -->
 <header class="hero">
   <div class="hero-container">
@@ -61,11 +65,10 @@
       <h2 class="section-title">Nossos momentos</h2>
       <div class="section-divider"></div>
       <div class="galeria-grid">
-        <!-- Substitua os placeholders por <img src="assets/fotos/foto1.jpg" alt="..."> -->
-        <div class="foto-placeholder"></div>
-        <div class="foto-placeholder"></div>
-        <div class="foto-placeholder"></div>
-        <div class="foto-placeholder"></div>
+        <img src="assets/fotos/foto1.jpg" alt="Luciana e Thiago 1" loading="lazy">
+        <img src="assets/fotos/foto2.jpg" alt="Luciana e Thiago 2" loading="lazy">
+        <img src="assets/fotos/foto3.jpg" alt="Luciana e Thiago 3" loading="lazy">
+        <img src="assets/fotos/foto4.jpg" alt="Luciana e Thiago 4" loading="lazy">
       </div>
     </div>
   </section>
