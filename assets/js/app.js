@@ -99,7 +99,7 @@ if (rsvpForm) {
   rsvpForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    if (APPS_SCRIPT_URL.includes("https://script.google.com/macros/s/AKfycbz2NI7Isd95k2y5_-vxr67eRlAqr4WeG50n1EAFBU29iMyjgvbGBJ0MoxM1VNVABeaT/exec")) {
+    if (APPS_SCRIPT_URL.includes("COLE_AQUI")) {
       rsvpStatus.textContent = "Formulário ainda não conectado à planilha (configure o APPS_SCRIPT_URL em app.js).";
       rsvpStatus.dataset.state = "error";
       return;
