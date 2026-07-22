@@ -120,7 +120,7 @@ if ("IntersectionObserver" in window && revealEls.length) {
 // IMPORTANTE: troque pela URL gerada ao publicar o Google Apps Script como
 // "Aplicativo da Web" (Implantar > Nova implantação > Aplicativo da Web).
 // Ela termina em "/exec".
-const APPS_SCRIPT_URL = "COLE_AQUI_A_URL_DO_SEU_APPS_SCRIPT";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz2NI7Isd95k2y5_-vxr67eRlAqr4WeG50n1EAFBU29iMyjgvbGBJ0MoxM1VNVABeaT/exec";
 
 const rsvpForm = document.getElementById("rsvpForm");
 const rsvpStatus = document.getElementById("rsvpStatus");
