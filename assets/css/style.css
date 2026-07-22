@@ -76,6 +76,16 @@ button{font-family:inherit}
 .hero-button:disabled{opacity:.7;cursor:default;transform:none}
 .hero-scroll{margin-top:40px;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:#b29e82}
 
+.hero-decor{
+  position:absolute;
+  color:var(--sea);
+  opacity:.18;
+  pointer-events:none;
+}
+.hero-decor--1{width:70px;height:70px;top:12%;left:6%;transform:rotate(-15deg)}
+.hero-decor--2{width:50px;height:50px;bottom:20%;right:8%;color:var(--gold);opacity:.22}
+.hero-decor--3{width:40px;height:40px;top:22%;right:14%;transform:rotate(20deg)}
+
 /* =========================================================
    SEÇÕES — estrutura genérica
    ========================================================= */
@@ -117,9 +127,24 @@ button{font-family:inherit}
 }
 .section--dark .section-title{color:#f3ede1}
 .section-divider{
-  width:60px;height:2px;margin:var(--sp-3) auto var(--sp-4);
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  width:min(220px, 60%);
+  margin:var(--sp-3) auto var(--sp-4);
+  color:var(--gold-deep);
 }
+.section--dark .section-divider{color:var(--gold)}
+.section-divider::before,
+.section-divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent,currentColor);
+}
+.section-divider::after{background:linear-gradient(90deg,currentColor,transparent)}
+.divider-icon{width:22px;height:22px;flex-shrink:0}
 .section-text{
   text-align:center;
   color:var(--text-soft);
