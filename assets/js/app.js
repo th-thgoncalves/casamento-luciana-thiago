@@ -1,7 +1,7 @@
 /*
 ======================================================
 Projeto Casamento — Luciana ❤ Thiago
-Versão 0.3.0
+Versão 0.4.0
 ======================================================
 */
 
@@ -162,6 +162,92 @@ if (rsvpForm) {
     } finally {
       rsvpSubmit.disabled = false;
       rsvpSubmit.textContent = "Confirmar Presença";
+    }
+  });
+}
+
+/* -----------------------------------------------------
+   5. MENSAGENS PARA OS NOIVOS → GOOGLE APPS SCRIPT
+----------------------------------------------------- */
+const mensagemForm = document.getElementById("mensagemForm");
+const mensagemStatus = document.getElementById("mensagemStatus");
+const mensagemSubmit = document.getElementById("mensagemSubmit");
+const mensagensLista = document.getElementById("mensagensLista");
+const mensagensVazio = document.getElementById("mensagensVazio");
+
+function renderizarMensagens(lista) {
+  if (!mensagensLista) return;
+
+  // Remove itens antigos (menos o aviso de "lista vazia")
+  [...mensagensLista.querySelectorAll(".mensagem-item")].forEach(el => el.remove());
+
+  if (!lista || lista.length === 0) {
+    if (mensagensVazio) mensagensVazio.style.display = "block";
+    return;
+  }
+
+  if (mensagensVazio) mensagensVazio.style.display = "none";
+
+  lista.forEach(item => {
+    const p = document.createElement("p");
+    p.className = "mensagem-item";
+    const nome = document.createElement("strong");
+    nome.textContent = item.nome + ": ";
+    p.appendChild(nome);
+    p.appendChild(document.createTextNode(item.mensagem));
+    mensagensLista.prepend(p);
+  });
+}
+
+async function carregarMensagens() {
+  if (!mensagensLista || APPS_SCRIPT_URL.includes("COLE_AQUI")) return;
+  try {
+    const resposta = await fetch(`${APPS_SCRIPT_URL}?acao=mensagens`);
+    const dados = await resposta.json();
+    renderizarMensagens(dados.mensagens || []);
+  } catch (erro) {
+    // Se não conseguir carregar (ex: CORS bloqueado), mantém o estado atual sem quebrar a página.
+    console.error("Não foi possível carregar as mensagens:", erro);
+  }
+}
+carregarMensagens();
+
+if (mensagemForm) {
+  mensagemForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const dados = new FormData(mensagemForm);
+    mensagemSubmit.disabled = true;
+    mensagemSubmit.textContent = "Enviando...";
+    mensagemStatus.textContent = "";
+    mensagemStatus.dataset.state = "";
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: dados,
+      });
+
+      // Mostra a mensagem na hora, sem esperar recarregar (o no-cors não deixa confirmar o envio)
+      renderizarMensagens([
+        { nome: dados.get("nome"), mensagem: dados.get("mensagem") },
+        ...[...mensagensLista.querySelectorAll(".mensagem-item")].map(el => ({
+          nome: el.querySelector("strong").textContent.replace(": ", ""),
+          mensagem: el.textContent.replace(el.querySelector("strong").textContent, "")
+        }))
+      ]);
+
+      mensagemForm.reset();
+      mensagemStatus.textContent = "Mensagem enviada! Obrigado 💛";
+      mensagemStatus.dataset.state = "success";
+    } catch (erro) {
+      console.error(erro);
+      mensagemStatus.textContent = "Não foi possível enviar agora. Tente novamente em instantes.";
+      mensagemStatus.dataset.state = "error";
+    } finally {
+      mensagemSubmit.disabled = false;
+      mensagemSubmit.textContent = "Enviar Mensagem";
     }
   });
 }
