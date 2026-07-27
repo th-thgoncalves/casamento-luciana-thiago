@@ -1,23 +1,35 @@
 :root{
-  /* Cores */
-  --bg:#f8f6f2;
-  --bg-alt:#fffdf8;
-  --bg-deep:#f0e8d9;
-  --text:#474340;
-  --text-soft:#7b7268;
-  --text-faint:#998d82;
-  --gold:#c8a96a;
-  --gold-deep:#b9894e;
-  --line:#e4dccb;
+  /* Cores — identidade visual: praia boho-chic */
+  --off-white:#f7f3ea;
+  --areia:#c9b491;
+  --linho:#e8dcc8;
+  --salvia:#8a9a7e;
+  --salvia-deep:#5f6f55;
+  --terracota:#c1694f;
+  --dourado:#c9a24c;
+  --dourado-deep:#a8802f;
+
+  --bg:var(--off-white);
+  --bg-alt:var(--linho);
+  --bg-deep:var(--areia);
+  --text:#4a4030;
+  --text-soft:#6b6152;
+  --text-faint:#948a76;
+  --gold:var(--dourado);
+  --gold-deep:var(--dourado-deep);
+  --sea:var(--salvia);
+  --sea-deep:var(--salvia-deep);
+  --line:#ddd0b8;
 
   /* Tipografia */
-  --title:"Bodoni Moda", serif;
-  --body:'Poppins', sans-serif;
-  --fs-eyebrow:.8rem;
-  --fs-body:1rem;
-  --fs-lead:1.1rem;
-  --fs-h2:clamp(2.2rem,5vw,3.2rem);
-  --fs-h1:clamp(4rem,10vw,6.8rem);
+  --title:'Pinyon Script', cursive;        /* Nomes — alternativa gratuita ao Bickham Script Pro */
+  --body:'Cormorant Garamond', serif;      /* Textos: data, horário, local */
+  --accent:'Parisienne', cursive;          /* Pequenos detalhes: frases/citações */
+  --fs-eyebrow:.85rem;
+  --fs-body:1.05rem;
+  --fs-lead:1.3rem;
+  --fs-h2:clamp(2.4rem,5vw,3.4rem);
+  --fs-h1:clamp(4.5rem,11vw,8rem);
 
   /* Espaçamento (escala 4px) */
   --sp-1:.5rem;
