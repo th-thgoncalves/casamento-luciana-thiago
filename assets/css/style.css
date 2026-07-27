@@ -8,7 +8,361 @@ body{
   background:var(--bg);
   color:var(--text);
   line-height:1.6;
+  -webkit-font-smoothing:antialiased;/* =========================================================
+   RESET & BASE
+   ========================================================= */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit}
+
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:var(--sp-4);
+  overflow:hidden;
+  background:linear-gradient(180deg,var(--off-white) 0%,var(--linho) 55%,var(--areia) 100%);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.85), transparent 55%),
+    radial-gradient(circle at 85% 90%, rgba(143,185,189,.25), transparent 60%);
+  pointer-events:none;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:70px;
+  background:var(--bg);
+  clip-path:polygon(0 60%,5% 55%,10% 62%,15% 50%,20% 60%,25% 48%,30% 58%,35% 46%,40% 56%,45% 44%,50% 54%,55% 42%,60% 52%,65% 45%,70% 55%,75% 43%,80% 53%,85% 47%,90% 57%,95% 50%,100% 60%,100% 100%,0 100%);
+}
+.hero-container{text-align:center;max-width:var(--content-width)}
+.monogram{
+  display:block;
+  width:min(220px, 55%);
+  margin:0 auto var(--sp-1);
+}
+.hero-date{
+  font-size:var(--fs-eyebrow);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--text-faint);
+}
+.hero-title{
+  margin-top:25px;
+  font-family:var(--title);
+  font-size:var(--fs-h1);
+  font-weight:600;
+  line-height:1.18;
+  letter-spacing:.02em;
+  color:#423d39;
+}
+.heart{display:block;margin:24px 0;color:var(--gold);font-size:1.5rem}
+.hero-subtitle{margin-top:35px;font-family:var(--accent);font-size:1.7rem;line-height:1.6;color:var(--text-soft)}
+.hero-divider{width:90px;height:2px;margin:45px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-location{line-height:2;color:#80766d}
+.hero-button{
+  margin-top:45px;min-width:230px;border:none;border-radius:var(--radius-pill);
+  padding:18px 0;cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  color:#fff;font-weight:500;letter-spacing:1px;transition:.35s;
+}
+.hero-button:hover{transform:translateY(-5px)}
+.hero-button:disabled{opacity:.7;cursor:default;transform:none}
+.hero-scroll{margin-top:40px;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:#b29e82}
+
+.hero-decor{
+  position:absolute;
+  color:var(--sea);
+  opacity:.18;
+  pointer-events:none;
+}
+.hero-decor--1{width:70px;height:70px;top:12%;left:6%;transform:rotate(-15deg)}
+.hero-decor--2{width:50px;height:50px;bottom:20%;right:8%;color:var(--gold);opacity:.22}
+.hero-decor--3{width:40px;height:40px;top:22%;right:14%;transform:rotate(20deg)}
+
+/* =========================================================
+   SEÇÕES — estrutura genérica
+   ========================================================= */
+.section{
+  padding:var(--sp-6) var(--sp-3);
+  max-width:var(--content-width);
+  margin:0 auto;
+}
+.section--alt{
+  max-width:none;
+  background:var(--bg-alt);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.section--alt > .section-inner{max-width:var(--content-width);margin:0 auto;padding:var(--sp-6) var(--sp-3)}
+.section--dark{
+  max-width:none;
+  background:linear-gradient(160deg,var(--sea-deep),#48543f);
+  color:#eaf2f0;
+}
+.section--dark .section-inner{max-width:var(--content-width);margin:0 auto;padding:var(--sp-6) var(--sp-3)}
+
+.eyebrow{
+  display:block;
+  font-size:var(--fs-eyebrow);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  margin-bottom:var(--sp-2);
+  text-align:center;
+}
+.section--dark .eyebrow{color:var(--gold)}
+.section-title{
+  font-family:var(--title);
+  font-size:var(--fs-h2);
+  text-align:center;
+  margin-bottom:var(--sp-3);
+  color:#423d39;
+}
+.section--dark .section-title{color:#e2c89a}
+.section-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  width:min(220px, 60%);
+  margin:var(--sp-3) auto var(--sp-4);
+  color:var(--gold-deep);
+}
+.section--dark .section-divider{color:var(--gold)}
+.section-divider::before,
+.section-divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent,currentColor);
+}
+.section-divider::after{background:linear-gradient(90deg,currentColor,transparent)}
+.divider-icon{width:22px;height:22px;flex-shrink:0}
+.section-text{
+  text-align:center;
+  color:var(--text-soft);
+  max-width:56ch;
+  margin:0 auto;
+}
+
+/* =========================================================
+   NOSSA HISTÓRIA
+   ========================================================= */
+.historia-texto{margin-top:var(--sp-3)}
+.historia-texto p{margin-bottom:var(--sp-2);color:var(--text-soft);text-align:center}
+
+/* =========================================================
+   GALERIA
+   ========================================================= */
+.galeria-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:var(--sp-2);
+}
+.galeria-grid img,.galeria-grid .foto-placeholder{
+  aspect-ratio:1/1;
+  border-radius:12px;
+  object-fit:cover;
+  background:var(--bg-deep);
+}
+
+/* =========================================================
+   CONTAGEM REGRESSIVA
+   ========================================================= */
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:var(--sp-3);
+  flex-wrap:wrap;
+  margin-top:var(--sp-3);
+}
+.countdown-item{text-align:center;min-width:70px}
+.countdown-number{
+  display:block;
+  font-family:var(--title);
+  font-size:2.6rem;
+  font-weight:600;
+  color:var(--gold);
+}
+.countdown-label{
+  font-size:.7rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#c9bfae;
+}
+
+/* =========================================================
+   CERIMÔNIA / RECEPÇÃO — cards de local
+   ========================================================= */
+.local-card{
+  text-align:center;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:var(--sp-4) var(--sp-3);
+  background:var(--bg);
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.local-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px -18px rgba(95,111,85,.35);
+}
+.section--alt .local-card{background:var(--bg-alt)}
+.local-card h3{font-family:var(--title);font-size:1.5rem;margin-bottom:var(--sp-1);color:#423d39}
+.local-card p{color:var(--text-soft);margin-bottom:var(--sp-1)}
+.local-card .btn-mapa{
+  display:inline-block;
+  margin-top:var(--sp-2);
+  padding:.7rem 1.6rem;
+  border:1px solid var(--gold-deep);
+  border-radius:var(--radius-pill);
+  color:var(--gold-deep);
+  text-decoration:none;
+  font-size:.85rem;
+  letter-spacing:1px;
+  transition:.3s;
+}
+.local-card .btn-mapa:hover{background:var(--gold-deep);color:#fff}
+
+/* =========================================================
+   RSVP — FORMULÁRIO
+   ========================================================= */
+.rsvp-form{
+  margin-top:var(--sp-4);
+  display:flex;
+  flex-direction:column;
+  gap:var(--sp-3);
+}
+.form-group{display:flex;flex-direction:column;gap:.4rem;text-align:left}
+.form-group label{font-size:.85rem;letter-spacing:.5px;color:var(--text-soft)}
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea{
+  padding:.9rem 1rem;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--bg-alt);
+  font-family:var(--body);
+  font-size:1rem;
+  color:var(--text);
+  transition:border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--sea-deep);
+  box-shadow:0 0 0 3px rgba(95,111,85,.15);
+}
+.form-group textarea{resize:vertical;min-height:90px}
+.radio-group{display:flex;gap:var(--sp-3)}
+.radio-option{display:flex;align-items:center;gap:.5rem;font-size:.95rem}
+.form-row{display:flex;gap:var(--sp-2)}
+.form-row .form-group{flex:1}
+.form-submit{
+  margin-top:var(--sp-2);
+  align-self:center;
+  min-width:230px;
+  border:none;
+  border-radius:var(--radius-pill);
+  padding:16px 0;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  color:#fff;
+  font-weight:500;
+  letter-spacing:1px;
+  transition:.35s;
+}
+.form-submit:hover{transform:translateY(-3px)}
+.form-submit:disabled{opacity:.6;cursor:default;transform:none}
+.form-status{text-align:center;font-size:.9rem;min-height:1.4em}
+.form-status[data-state="success"]{color:#4c7a4c}
+.form-status[data-state="error"]{color:#b5473f}
+
+/* =========================================================
+   LISTA DE PRESENTES
+   ========================================================= */
+.presentes-card{
+  text-align:center;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:var(--sp-4) var(--sp-3);
+}
+
+/* =========================================================
+   MENSAGENS
+   ========================================================= */
+.mensagens-lista{margin-top:var(--sp-3);display:flex;flex-direction:column;gap:var(--sp-2)}
+.mensagem-item{
+  border-left:2px solid var(--gold);
+  padding-left:var(--sp-2);
+  color:var(--text-soft);
+  font-style:italic;
+}
+
+/* =========================================================
+   RODAPÉ / CONTATO
+   ========================================================= */
+.footer{
+  text-align:center;
+  padding:var(--sp-5) var(--sp-3);
+  background:var(--bg-deep);
+}
+.footer .hero-title{font-size:clamp(2rem,6vw,3rem)}
+.footer-info{margin-top:var(--sp-2);color:var(--text-soft)}
+.footer-credit{margin-top:var(--sp-4);font-family:var(--accent);font-size:1.1rem;color:var(--text-faint)}
+
+/* =========================================================
+   BOTÃO DE MÚSICA (flutuante)
+   ========================================================= */
+.music-toggle{
+  position:fixed;
+  right:var(--sp-2);
+  bottom:var(--sp-2);
+  z-index:50;
+  width:52px;
+  height:52px;
+  border:none;
+  border-radius:50%;
+  background:var(--bg-alt);
+  box-shadow:0 8px 20px -8px rgba(0,0,0,.25);
+  font-size:1.3rem;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .3s var(--ease), background .3s;
+}
+.music-toggle:hover{transform:translateY(-3px)}
+.music-toggle.is-playing{background:var(--gold);color:#fff}
+
+/* =========================================================
+   REVEAL (animação de entrada ao rolar)
+   ========================================================= */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
+
 }
 img{max-width:100%;display:block}
 a{color:inherit}
