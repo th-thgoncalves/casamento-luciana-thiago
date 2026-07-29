@@ -69,7 +69,7 @@ button{font-family:inherit}
   color:#423d39;
 }
 .heart{display:block;margin:24px 0;color:var(--gold);font-size:1.5rem}
-.amp{display:block;margin:8px 0;color:var(--gold);font-family:'Alex Brush',cursive;font-size:3.4rem;line-height:1}
+.amp{display:block;margin:8px 0;color:var(--text);font-family:'Alex Brush',cursive;font-size:4.4rem;line-height:1}
 .footer-monogram{width:min(160px, 45%);margin-bottom:var(--sp-2)}
 .hero-subtitle{margin-top:35px;font-family:var(--accent);font-size:1.7rem;line-height:1.6;color:var(--text-soft)}
 .hero-divider{width:90px;height:2px;margin:45px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
