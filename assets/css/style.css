@@ -51,6 +51,7 @@ button{font-family:inherit}
   display:block;
   width:min(220px, 55%);
   margin:0 auto var(--sp-1);
+  mix-blend-mode:multiply;
 }
 .hero-date{
   font-size:var(--fs-eyebrow);
@@ -68,6 +69,8 @@ button{font-family:inherit}
   color:#423d39;
 }
 .heart{display:block;margin:24px 0;color:var(--gold);font-size:1.5rem}
+.amp{display:block;margin:16px 0;color:var(--gold);font-family:var(--title);font-size:2.8rem;line-height:1}
+.footer-monogram{width:min(160px, 45%);margin-bottom:var(--sp-2)}
 .hero-subtitle{margin-top:35px;font-family:var(--accent);font-size:1.7rem;line-height:1.6;color:var(--text-soft)}
 .hero-divider{width:90px;height:2px;margin:45px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .hero-location{line-height:2;color:#80766d}
